@@ -64,6 +64,10 @@ namespace DiskUsageAnalyzer
 				//If we cannot traverse further because of the directory access rules then stop.
 				return;
 			}
+            catch (System.IO.DirectoryNotFoundException)
+            {
+                return;
+            }
 		}
 
         //Calculates the size in bytes of a folder.
@@ -86,6 +90,11 @@ namespace DiskUsageAnalyzer
 				//File somehow not found, adds 0 to the size;
 				return 0;
 			}
+            catch (System.IO.DirectoryNotFoundException)
+            {
+                //Adds 0 to the size;
+                return 0;
+            }
 		}
 
         //Calculate pie-slice sizes and orientations.
