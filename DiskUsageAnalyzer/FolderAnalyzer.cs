@@ -68,6 +68,10 @@ namespace DiskUsageAnalyzer
             {
                 return;
             }
+			catch (System.IO.PathTooLongException)
+            {
+				return;
+            }
 		}
 
         //Calculates the size in bytes of a folder.
@@ -95,6 +99,10 @@ namespace DiskUsageAnalyzer
                 //Adds 0 to the size;
                 return 0;
             }
+			catch (System.IO.PathTooLongException)
+			{
+				return 0;
+			}
 		}
 
         //Calculate pie-slice sizes and orientations.
